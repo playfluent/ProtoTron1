@@ -10,7 +10,7 @@ public class Mover : MonoBehaviour {
 	{
 		mover = GetComponent<Rigidbody> ();
 
-		if (mover.tag == "Hazard") {
+		if (mover.tag == "Hazard" || mover.tag == "Pickup") {
 			mover.velocity = transform.right * -speed;
 		}else{
 			mover.velocity = transform.up * speed;

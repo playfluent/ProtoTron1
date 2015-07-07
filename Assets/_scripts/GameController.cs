@@ -34,6 +34,10 @@ public class GameController : MonoBehaviour {
 		StartCoroutine ("UpdateBeat");
 	}
 
+	void Update(){
+		ShieldUpdate ();
+	}
+
 	//Spawns hazard waves
 	IEnumerator SpawnWaves (){
 		yield return new WaitForSeconds (startWait);
@@ -74,7 +78,10 @@ public class GameController : MonoBehaviour {
 
 	//provide feedback on shield status
 	public void ShieldUpdate(){
-		shieldIndicator.gameObject.SetActive(false);
+		if (shieldsUp == false)
+			shieldIndicator.gameObject.SetActive (false);
+		else
+			shieldIndicator.gameObject.SetActive (true);
 	}
 
 	//function to be called whenever the score changes
